@@ -15,5 +15,6 @@ docker create --name youtrack-data \
 docker run -d \
   --volumes-from youtrack-data \
   -p 80:8080 \
+  -e "BASE_URL=<url>" \
   --name youtrack wearemakery/youtrack
 ```
