@@ -2,7 +2,7 @@ FROM wearemakery/zulu-jdk-opensuse
 
 MAINTAINER Gyula Voros <gyulavoros87@gmail.com>
 
-ENV YOUTRACK_VERSION 6.5.17105
+ENV YOUTRACK_VERSION 7.0.27705
 
 VOLUME ["/root/teamsysdata", "/root/teamsysdata-backup"]
 
