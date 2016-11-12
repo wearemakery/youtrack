@@ -1,6 +1,6 @@
 # Youtrack Docker
 
-This image contains Jetbrains [Youtrack](https://www.jetbrains.com/youtrack/). It's optimized for size and based on a minimal Zulu OpenJDK container [wearemakery/zulu-jdk-opensuse](https://hub.docker.com/r/wearemakery/zulu-jdk-opensuse/).
+This image contains Jetbrains [Youtrack](https://www.jetbrains.com/youtrack/). It's based on [Zulu](https://hub.docker.com/r/azul/zulu-openjdk-debian/).
 
 # Usage
 

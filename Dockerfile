@@ -1,16 +1,18 @@
-FROM wearemakery/zulu-jdk-opensuse
+FROM azul/zulu-openjdk-debian:8
 
 MAINTAINER Gyula Voros <gyulavoros87@gmail.com>
 
-ENV YOUTRACK_VERSION 7.0.27705
+ENV YOUTRACK_VERSION 7.0.28110
 
-VOLUME ["/root/teamsysdata", "/root/teamsysdata-backup"]
+WORKDIR /opt/youtrack
 
-RUN zypper -n in wget \
-  && wget --no-check-certificate -q -P /opt/youtrack https://download-cf.jetbrains.com/charisma/youtrack-$YOUTRACK_VERSION.jar \
-  && zypper -n rm wget \
-  && zypper clean
+RUN apt-get update && apt-get install -y wget ca-certificates && \
+    wget -q https://download-cf.jetbrains.com/charisma/youtrack-$YOUTRACK_VERSION.jar && \
+    mv youtrack-$YOUTRACK_VERSION.jar youtrack.jar && \
+    apt-get autoremove -y wget && \
+    rm -rf /var/cache/apt/archives
 
 EXPOSE 8080
-WORKDIR /opt/youtrack
-CMD ["sh", "-c", "java -Xmx1g -XX:MaxPermSize=250m -Djava.awt.headless=true -Djetbrains.youtrack.baseUrl=$BASE_URL -jar youtrack-$YOUTRACK_VERSION.jar 8080"]
+VOLUME ["/root/teamsysdata", "/root/teamsysdata-backup"]
+
+CMD ["sh", "-c", "java -Xmx1g -XX:MaxPermSize=250m -Djava.awt.headless=true -Djetbrains.youtrack.baseUrl=$BASE_URL -jar youtrack.jar 8080"]
