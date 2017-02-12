@@ -2,7 +2,7 @@ FROM azul/zulu-openjdk-debian:8
 
 MAINTAINER Gyula Voros <gyulavoros87@gmail.com>
 
-ENV YOUTRACK_VERSION 7.0.28110
+ENV YOUTRACK_VERSION 2017.1.30867
 
 WORKDIR /opt/youtrack
 
