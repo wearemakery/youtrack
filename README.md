@@ -1,6 +1,6 @@
 # Youtrack Docker
 
-This image contains Jetbrains [Youtrack](https://www.jetbrains.com/youtrack/). It's based on [Zulu](https://hub.docker.com/r/azul/zulu-openjdk-debian/).
+This image contains a minimal Jetbrains [Youtrack](https://www.jetbrains.com/youtrack/) setup. It's based on the [Zulu JDK and Alpine linux](https://github.com/zulu-openjdk/zulu-openjdk/tree/master/alpine).
 
 # Usage
 

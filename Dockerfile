@@ -1,16 +1,15 @@
-FROM azul/zulu-openjdk-debian:8
+FROM azul/zulu-openjdk-alpine:8u131
 
 MAINTAINER Gyula Voros <gyulavoros87@gmail.com>
 
-ENV YOUTRACK_VERSION 2017.2.35124
+ENV YOUTRACK_VERSION 2017.3.35488
 
 WORKDIR /opt/youtrack
 
-RUN apt-get update && apt-get install -y wget ca-certificates && \
+RUN apk add --no-cache wget ca-certificates && \
     wget -q https://download-cf.jetbrains.com/charisma/youtrack-$YOUTRACK_VERSION.jar && \
     mv youtrack-$YOUTRACK_VERSION.jar youtrack.jar && \
-    apt-get autoremove -y wget && \
-    rm -rf /var/cache/apt/archives
+    apk del wget
 
 EXPOSE 8080
 VOLUME ["/root/teamsysdata", "/root/teamsysdata-backup"]
